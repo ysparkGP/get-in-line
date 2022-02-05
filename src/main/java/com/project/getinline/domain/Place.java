@@ -10,7 +10,7 @@ public class Place {
     private Long id;
 
     private PlaceType placeType;
-    private String placeNumber;
+    private String placeName;
     private String address;
     private String phoneNumber;
     private Integer capacity;
