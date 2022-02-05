@@ -1,5 +1,7 @@
 package com.project.getinline.controller.api;
 
+import com.project.getinline.exception.GeneralException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,18 +10,21 @@ import java.util.List;
 @RestController
 public class APIEventController {
     @GetMapping("/events")
-    public List<String> getEvents(){
-        return List.of("event1", "event2");
+    public List<String> getEvents() throws Exception{
+        throw new HttpRequestMethodNotSupportedException("GET");
+        // return List.of("event1", "event2");
     }
 
     @PostMapping("/events")
     public Boolean createEvent(){
-        return true;
+        throw new GeneralException("general");
+//        return true;
     }
 
     @GetMapping("/events/{eventId}")
     public String getEvent(@PathVariable Integer eventId){
-        return "event" + eventId;
+        throw new RuntimeException("Runtime");
+//        return "event" + eventId;
     }
 
     @PostMapping("/events/{eventId}")
