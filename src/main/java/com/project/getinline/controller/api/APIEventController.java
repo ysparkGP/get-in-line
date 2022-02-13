@@ -18,11 +18,10 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Slf4j
-@Validated
+//@Validated
 @RequiredArgsConstructor
-@RequestMapping("/api")
-@RestController
+//@RequestMapping("/api")
+//@RestController
 public class APIEventController {
 
     private final EventService eventService;
@@ -50,7 +49,7 @@ public class APIEventController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/events")
     public APIDataResponse<String> createEvent(@Valid @RequestBody EventRequest eventRequest){
-        log.debug("보고 싶은 값: {}", eventRequest);
+        //log.debug("보고 싶은 값: {}", eventRequest);
         boolean result = eventService.createEvent(eventRequest.toDTO());
 
         return APIDataResponse.of(Boolean.toString(result));
